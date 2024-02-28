@@ -11,7 +11,7 @@ void main() {
       darkTheme: ThemeData.dark(),
       home: DefaultTabController(
         initialIndex: 2,
-        length: 3,
+        length: 4,
         child: Scaffold(
           appBar: AppBar(
             title: const Center(
@@ -24,7 +24,7 @@ void main() {
                 Tab(
                   child: Text('Backup',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                       )),
                 ),
                 Tab(
@@ -32,6 +32,9 @@ void main() {
                 ),
                 Tab(
                   icon: Icon(Icons.brightness_5_sharp),
+                ),
+                Tab(
+                  icon: Icon(Icons.access_alarm),
                 ),
               ],
             ),
@@ -43,7 +46,13 @@ void main() {
                     "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg"),
               ),
               const Center(
-                child: Text("It's rainy here"),
+                  child: Column(
+                    children: [
+                    Text("It's rainy here"),
+                    Text("It's rainy here"),
+                    Text("It's rainy here"),
+                    ],
+                  ),
               ),
               const Center(
                 child: Text("It's sunny here"),
