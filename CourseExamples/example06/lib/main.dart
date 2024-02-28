@@ -18,7 +18,7 @@ void main() {
         appBar: AppBar(
           title: const Center(
             child: Text(
-              'Example 5',
+              'Example 6',
             ),
           ),
         ),
