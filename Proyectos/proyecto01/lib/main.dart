@@ -11,13 +11,15 @@ class MiTarjeta extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Mi Tarjeta Digital'),
           centerTitle: true,
+          backgroundColor: Colors.redAccent,
         ),
+        backgroundColor: Colors.redAccent,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const CircleAvatar(
-                radius: 90.0,
+                radius: 120.0,
                 backgroundImage: AssetImage('./images/ImagenPerfil.jpg'),
               ),
               const SizedBox(height: 20),
@@ -29,57 +31,53 @@ class MiTarjeta extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
+              const Text(
                 'FullStack Developer',
                 style: TextStyle(
                   fontSize: 30.0,
-                  color: Colors.grey[700],
+                  color: Colors.grey,
                   letterSpacing: 2.5,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 60),
               Container(
-                  margin:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                  padding: EdgeInsets.all(10.0),
-                  color: Colors.white,
-                  child: Column(children: [
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.phone,
-                                  color: Colors.teal[900],
-                                ),
-                                const SizedBox(width: 10.0),
-                                Text(
-                                  '+1-787-602-5155',
-                                  style: TextStyle(
-                                    color: Colors.teal[900],
-                                    fontSize: 20.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Icon(
-                                  Icons.email,
-                                  color: Colors.teal[900],
-                                ),
-                                const SizedBox(width: 10.0),
-                                Text('abimael.santa1@gmail.com')
-                              ],
-                            ),
-                            Row( 
-                              children: <Widget>[
-                              const CircleAvatar(
-                              radius: 90.0,
-                              backgroundImage: AssetImage('./images/qrCode.png'))],)
-                          ]),
+                alignment: Alignment.center,
+                child: Column(children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,                    ,
+                    children: <Widget>[
+                      Icon(
+                        Icons.phone,
+                        color: Colors.teal[900],
+                      ),
+                      const SizedBox(width: 10.0),
+                      Text(
+                        '+1 787-602-5155',
+                        style: TextStyle(
+                          color: Colors.teal[900],
+                          fontSize: 20.0,
                         ),
-              const SizedBox(height: 40),
-// Repetir Container para otros detalles decontacto...
+                      ),
+                    ],
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Icons.email,
+                        color: Colors.teal,
+                      ),
+                      SizedBox(width: 10.0),
+                      Text('abimael.santa1@gmail.com')
+                    ],
+                  ),
+                ]),
+              ),
+              SizedBox(height: 40),
+              Container(
+                child: Image.asset("./images/qrCode.png"),
+              )
             ],
           ),
         ),
