@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:web_view/screens/dessertPage.dart';
-import 'package:web_view/screens/drinksPage.dart';
-import 'package:web_view/screens/foodPage.dart';
+import 'package:web_view/screens/drink_page.dart';
+import 'package:web_view/screens/food_page.dart';
+import 'package:web_view/screens/dessert_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -15,7 +15,7 @@ class _MainScreen extends State<MainScreen> {
 
   final List<Widget> _pantallas = [
     const FoodPage(),
-    const DrinksPage(),
+    const DrinkPage(),
     const DessertPage()
   ];
 
