@@ -73,7 +73,27 @@ class _RecepiesPageState extends State<RecepiesPage> {
       ),
       body: WebView(
         initialUrl: urls[_currentIndex],
-        javascriptMode: JavascriptMode.unrestricted,
+        
+        javascriptMode: JavascriptMode.unrestricted, 
+        
+        onWebResourceError: (WebResourceError error) {
+          // Handle the error here
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('Error'),
+              content: Text('An error occurred while loading the page: ${error.description}'),
+              actions: <Widget>[
+                TextButton(
+                  child: Text('OK'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
