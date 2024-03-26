@@ -15,13 +15,34 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.yellow,
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(_createRoute());
-          },
-          child: const Text("Abi's Recepies"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.all(16.0), // Adjust padding as needed
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.green, // Border color
+                  width: 4.0, // Border width
+                ),
+              ),
+              child: Image.asset('assets/Logo.webp'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(_createRoute());
+              },
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all(Colors.green), // Background color
+                foregroundColor:
+                    MaterialStateProperty.all(Colors.amber), // Text color
+              ),
+              child: const Text("3 Step Recipes"),
+            ),
+          ],
         ),
       ),
     );
@@ -32,7 +53,8 @@ class InitialPage extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => RecepiesPage(),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const RecepiesPage(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 1.0);
       const end = Offset.zero;
@@ -50,7 +72,7 @@ Route _createRoute() {
 
 //Recepies Page, TabNavigation to web_view
 class RecepiesPage extends StatefulWidget {
-  RecepiesPage({super.key});
+  const RecepiesPage({super.key});
 
   @override
   _RecepiesPageState createState() => _RecepiesPageState();
@@ -60,32 +82,33 @@ class _RecepiesPageState extends State<RecepiesPage> {
   int _currentIndex = 0;
 
   final List<String> urls = [
-    'http://arecibo.inter.edu/recepies/food',
-    'http://arecibo.inter.edu/recepies/dessert',
-    'http://arecibo.inter.edu/recepies/drink'
+    'https://cruzade-ab.github.io/food.html',
+    'https://cruzade-ab.github.io/dessert.html',
+    'https://cruzade-ab.github.io/drink.html'
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Select a Recepy'),
+        title: const Text('Select a Recepy'),
+        backgroundColor: Colors.lightGreen, 
       ),
       body: WebView(
+        key: UniqueKey(),
         initialUrl: urls[_currentIndex],
-        
-        javascriptMode: JavascriptMode.unrestricted, 
-        
+        javascriptMode: JavascriptMode.unrestricted,
         onWebResourceError: (WebResourceError error) {
           // Handle the error here
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Error'),
-              content: Text('An error occurred while loading the page: ${error.description}'),
+              title: const Text('Error'),
+              content: Text(
+                  'An error occurred while loading the page: ${error.description}'),
               actions: <Widget>[
                 TextButton(
-                  child: Text('OK'),
+                  child: const Text('OK'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -102,7 +125,10 @@ class _RecepiesPageState extends State<RecepiesPage> {
             _currentIndex = index;
           });
         },
-        items: [
+        backgroundColor: Colors.lightGreen, 
+        selectedItemColor: Colors.amber, 
+        unselectedItemColor: Colors.yellow,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.fastfood),
             label: 'Food',
