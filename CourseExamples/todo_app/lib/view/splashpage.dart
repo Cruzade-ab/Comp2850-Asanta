@@ -45,7 +45,7 @@ class SplashPage extends StatelessWidget {
               child: Text(
                 'La mejor forma para que no se te olvide nada es anotarlo, Guardar tus tareas y ve completando poco a poco para aumentar tu productividad',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white),
               ),
             )
           ],
