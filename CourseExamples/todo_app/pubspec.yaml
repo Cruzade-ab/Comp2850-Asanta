@@ -63,6 +63,7 @@ flutter:
     - assets/images/shape.png
     - assets/images/image.png
     - assets/images/image-1.png
+    - assets/images/tasks-list-image.png
 
   fonts:
     - family: Poppins

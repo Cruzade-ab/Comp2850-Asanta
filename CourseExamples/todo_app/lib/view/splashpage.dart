@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/components/page_title.dart';
+import 'package:todo_app/components/shape.dart';
+import 'package:todo_app/components/task_list_page.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
+  final Color titleColor;
+
+  const SplashPage( this.titleColor, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +16,36 @@ class SplashPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              children: [Image.asset('assets/images/shape.png', width: 141, height: 129,),],
+            const Shape(),
+            const SizedBox(height: 73),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TaskListPage()),
+                );
+              },
+              child: Image.asset(
+                'assets/images/image-1.png',
+                width: 180,
+                height: 169,
+              ),
             ),
-            Image.asset('assets/images/image.png'),
+            const SizedBox(
+              height: 99,
+            ),
+            PageTittle(color: titleColor),
+            const SizedBox(
+              height: 21,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: Text(
+                'La mejor forma para que no se te olvide nada es anotarlo, Guardar tus tareas y ve completando poco a poco para aumentar tu productividad',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+              ),
+            )
           ],
         ),
       ),

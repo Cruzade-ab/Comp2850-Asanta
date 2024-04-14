@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
           displayColor: textColor
         )
       ),
-      home: const SplashPage(),
+      home: const SplashPage(textColor),
     );
   }
 }
