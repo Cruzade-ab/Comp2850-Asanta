@@ -13,7 +13,9 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          // MainAxisAlignment Start- Para Inicializar el contenido desde el Comienzo de la pantalla
+          // Si se selecciona 'center', el contenido se centraliza, si no ocupa todo el espacio ocurre el effecto del gap al inicio
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Shape(),
