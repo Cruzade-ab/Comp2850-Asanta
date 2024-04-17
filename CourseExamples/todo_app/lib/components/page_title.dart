@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 
 class PageTittle extends StatelessWidget {
-  const PageTittle( {super.key, required this.color});
-  // this.text,
-  // final String text;
-  final Color color;
+  const PageTittle(this.text, {super.key, required this.color});
+  //
+  final String text;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Lista De Tareas',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-        )
-      ],
+    return Text(
+      text,
+      style: TextStyle(color: color, fontSize: 18, fontWeight: FontWeight.w600),
     );
   }
 }
