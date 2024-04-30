@@ -20,12 +20,13 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: primary),
         scaffoldBackgroundColor: backgroundColor,
         textTheme: Theme.of(context).textTheme.apply(
-          fontFamily: 'Poppins',
-          bodyColor: textColor,
-          displayColor: textColor
-        )
+              fontFamily: 'Poppins',
+              bodyColor: textColor,
+              displayColor: textColor,
+            ),
+        // bottomSheetTheme: const BottomSheetThemeData(backgroundColor: Colors.transparent)
       ),
-      home: const SplashPage(textColor),
+      home: const SplashPage(),
     );
   }
 }
