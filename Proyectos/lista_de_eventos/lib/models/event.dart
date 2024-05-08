@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-part './event.g.dart'; 
+part 'event.g.dart';
 
 @HiveType(typeId: 0)
 class Event {
