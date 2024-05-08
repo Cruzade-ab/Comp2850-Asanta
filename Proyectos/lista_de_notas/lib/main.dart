@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'models/note.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,13 +19,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Notas',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.pacificoTextTheme(
-          Theme.of(context).textTheme,
+        // Define the default text theme
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontFamily: 'Pacifico', fontSize: 32, fontWeight: FontWeight.bold),
+          headline2: TextStyle(fontFamily: 'Pacifico', fontSize: 24, fontWeight: FontWeight.bold),
+          bodyText1: TextStyle(fontFamily: 'Pacifico', fontSize: 16),
+          bodyText2: TextStyle(fontFamily: 'Pacifico', fontSize: 14),
+          // Add other styles if needed
         ),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const NotesScreen(),
+      home: NotesScreen(),
     );
   }
 }
@@ -83,18 +87,22 @@ class _NotesScreenState extends State<NotesScreen> {
               ),
             ),
           ),
-          Column(
+          Container(
+          // Applying margin around the Column
+          margin: const  EdgeInsets.symmetric(horizontal: 70), 
+          child: Column(
             children: [
               const SizedBox(
-                height: 65,
+                height: 75,
               ),
               const Padding(
-                padding: EdgeInsets.all(0),
-                child: Text('Notas Diarias', style: TextStyle(
-    fontFamily: 'Pacifico',
-    fontSize: 24,
-  ),)
-              ),
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                    'Daily Notes',
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
+                  )),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -102,6 +110,7 @@ class _NotesScreenState extends State<NotesScreen> {
                   decoration: const InputDecoration(
                     labelText: 'Write a Note',
                     icon: Icon(Icons.create_outlined),
+                    
                   ),
                 ),
               ),
@@ -121,7 +130,7 @@ class _NotesScreenState extends State<NotesScreen> {
                         return ListTile(
                           title: Text(note.title),
                           trailing: IconButton(
-                            icon: const Icon(Icons.delete),
+                            icon: const Icon(Icons.delete_outline),
                             onPressed: () {
                               box.deleteAt(index);
                             },
@@ -137,7 +146,7 @@ class _NotesScreenState extends State<NotesScreen> {
               ),
             ],
           ),
-        ],
+      )]
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
